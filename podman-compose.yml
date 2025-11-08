@@ -1,0 +1,12 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    network_mode: host
+    env_file: /etc/keycloak/keycloak.env
+    volumes:
+    - /opt/keycloak/data:/opt/keycloak/data
+    - /opt/keycloak/conf:/opt/keycloak/conf
+    - /opt/keycloak/providers:/opt/keycloak/providers
+    - /opt/keycloak/logs:/opt/keycloak/logs
+    command: ["start", "--optimized"]
+    restart: always
